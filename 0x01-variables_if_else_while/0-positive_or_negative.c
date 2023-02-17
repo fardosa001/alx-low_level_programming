@@ -3,9 +3,8 @@
 #include <time.h>
 
 /**main-Entry point
-* 
 *Return: Always 0
-*
+*Description: get ramdon number and print
 */
 int main(void)
 {
