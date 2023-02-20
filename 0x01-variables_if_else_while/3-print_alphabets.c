@@ -15,10 +15,12 @@ int main(void)
 	while (n <= 122)
 	{
 	putchar (n);
+	n++;
 	}
 	while (m <= 98)
 	{
 	putchar (m);
+	m++;
 	}
 	putchar ('\n');
 
