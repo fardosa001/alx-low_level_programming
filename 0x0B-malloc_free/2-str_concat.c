@@ -29,12 +29,13 @@ char *str_concat(char *s1, char *s2)
 
 	s = malloc(sizeof(char) * (s1_len + s2_len + 1));
 
-	if (s == NULL)
+	if (!s)
 	{
 
 	return (NULL);
 	}
-
+	
+	
 	strcpy(s, s1);
 	strcat(s, s2);
 
