@@ -37,9 +37,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	if (concat == NULL)
 
-	{
-		return (NULL);
-	}
+	return (NULL);
 
 
 	strncpy(concat, s1, i);
