@@ -1,11 +1,14 @@
 #ifndef MAIN_H
 #define MAIN_H
+
 #include <stddef.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/uio.h>
+
 
 int _putchar(char c);
 void copy_file(const char *file_from, const char *file_to);
