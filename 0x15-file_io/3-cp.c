@@ -39,7 +39,7 @@ void copy_file(const char *file_from, const char *file_to)
 	}
 
 
-	t_fd = open(file_from, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	t_fd = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	while ((read_n = read(f_fd, buff, 1024)) > 0)
 	{
 		if (write(t_fd, buff, read_n) != read_n || t_fd == -1)
