@@ -32,7 +32,7 @@ void copy_file(const char *file_from, const char *file_to)
 	int read_n;
 
 	f_fd = open(file_from, O_RDONLY);
-	if (!file_from || f_fd == -1)
+	if (f_fd == -1)
 	{
 	dprintf(STDERR_FILENO, "ERROR: can't read from file %s/n", file_from);
 	exit(98);
@@ -40,6 +40,7 @@ void copy_file(const char *file_from, const char *file_to)
 
 
 	t_fd = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+
 	while ((read_n = read(f_fd, buff, 1024)) > 0)
 	{
 		if (write(t_fd, buff, read_n) != read_n || t_fd == -1)
