@@ -16,13 +16,13 @@ int main(int ac, char **av)
 	}
 
 	copy_file(av[1], av[2]);
-	return (0);
+	exit(0);
 }
 /**
  * copy_file - copies content of a file to another file.
  * @file_from: file to copy from
  * @file_to: file to copy to
- * Return: copied file
+ * Return: 0 (success), 97-100 (exit value errors)
  */
 void copy_file(const char *file_from, const char *file_to)
 {
