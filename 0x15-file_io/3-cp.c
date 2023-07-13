@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-
 /**
  * main - Entry point
  * @ac: argument count
@@ -17,7 +16,7 @@ int main(int ac, char **av)
 	}
 
 	copy_file(av[1], av[2]);
-		exit(0);
+	return (0);
 }
 /**
  * copy_file - copies content of a file to another file.
@@ -37,20 +36,20 @@ void copy_file(const char *file_from, const char *file_to)
 	dprintf(STDERR_FILENO, "ERROR: can't read from file %s/n", file_from);
 	exit(98);
 	}
-
-
 	t_fd = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-
+	if (t_fd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: can't write to %s\n", file_to);
+		exit(99);
+	}
 	while ((read_n = read(f_fd, buff, 1024)) > 0)
 	{
-		if (write(t_fd, buff, read_n) != read_n || t_fd == -1)
-		{
-
+	if (write(t_fd, buff, read_n) != read_n)
+	{
 		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", file_to);
 		       exit(99);
 		}
 	}
-
 	if (read_n == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't read from file %s/n", file_from);
@@ -62,7 +61,6 @@ void copy_file(const char *file_from, const char *file_to)
 		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", f_fd);
 		exit(100);
 	}
-
 	if (close(t_fd) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", t_fd);
