@@ -31,20 +31,17 @@ void copy_file(const char *file_from, const char *file_to)
 	int read_n;
 
 	f_fd = open(file_from, O_RDONLY);
-	if (f_fd == -1)
+	if (!file_from || f_fd == -1)
 	{
 	dprintf(STDERR_FILENO, "Error: can't read from file %s/n", file_from);
 	exit(98);
 	}
+
 	t_fd = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (t_fd == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: can't write to %s\n", file_to);
-		exit(99);
-	}
 	while ((read_n = read(f_fd, buff, 1024)) > 0)
 	{
-	if (write(t_fd, buff, read_n) != read_n)
+
+		if (write(t_fd, buff, read_n) != read_n || t_fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't write to %s\n", file_to);
 		       exit(99);
