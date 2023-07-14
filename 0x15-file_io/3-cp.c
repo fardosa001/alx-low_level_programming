@@ -11,7 +11,7 @@ int main(int ac, char **av)
 {
 	if (ac != 3)
 	{
-		dprintf(STDERR_FILENO, "usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
@@ -33,7 +33,7 @@ void copy_file(const char *file_from, const char *file_to)
 	f_fd = open(file_from, O_RDONLY);
 	if (f_fd == -1)
 	{
-	dprintf(STDERR_FILENO, "ERROR: can't read from file %s/n", file_from);
+	dprintf(STDERR_FILENO, "Error: can't read from file %s/n", file_from);
 	exit(98);
 	}
 	t_fd = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
@@ -46,7 +46,7 @@ void copy_file(const char *file_from, const char *file_to)
 	{
 	if (write(t_fd, buff, read_n) != read_n)
 	{
-		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", file_to);
+		dprintf(STDERR_FILENO, "Error: can't write to %s\n", file_to);
 		       exit(99);
 		}
 	}
