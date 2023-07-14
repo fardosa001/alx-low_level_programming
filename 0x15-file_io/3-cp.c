@@ -16,7 +16,7 @@ int main(int ac, char **av)
 	}
 
 	copy_file(av[1], av[2]);
-	return (0);
+	exit(0);
 }
 /**
  * copy_file - copies content of a file to another file.
