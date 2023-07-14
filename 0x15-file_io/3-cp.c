@@ -27,7 +27,7 @@ int main(int ac, char **av)
 void copy_file(const char *file_from, const char *file_to)
 {
 	int f_fd, t_fd;
-	char *buff[1024];
+	char buff[1024];
 	int read_n;
 
 	f_fd = open(file_from, O_RDONLY);
@@ -42,7 +42,7 @@ void copy_file(const char *file_from, const char *file_to)
 		dprintf(STDERR_FILENO, "Error: can't write to %s\n", file_to);
 		exit(99);
 	}
-	while ((read_n = read(f_fd, buff, 1024)) != 0)
+	while ((read_n = read(f_fd, buff, 1024)) > 0)
 	{
 	if (write(t_fd, buff, read_n) != read_n)
 	{
