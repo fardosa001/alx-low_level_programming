@@ -8,7 +8,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/uio.h>
-
+#include <errno.h>
+#include <stdio.h>
 
 int _putchar(char c);
 void copy_file(const char *file_from, const char *file_to);
