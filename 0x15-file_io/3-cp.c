@@ -48,7 +48,7 @@ int main(int ac, char *av[])
 		error_handler(98, "Error: can't read from file %s\n", 's', av[1]);
 
 
-	t_fd = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	t_fd = open(av[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	if (t_fd == -1)
 		error_handler(99, "Error: can't write to %s\n", 's', av[2]);
 
