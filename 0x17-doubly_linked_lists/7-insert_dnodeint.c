@@ -12,7 +12,7 @@ dlistint_t *create_node(dlistint_t *temp, int n)
 {
 	dlistint_t *new_node;
 
-	new_node = malloc(sizeof(dlistint_t));
+	new_node = malloc(sizeof(struct dlistint_s));
 	if (new_node == NULL)
 	return (NULL);
 
@@ -32,7 +32,7 @@ dlistint_t *create_node(dlistint_t *temp, int n)
  * @idx: Index of the list where the new node should be added.Index starts at 0
  * @h: pointer to head of the list
  * @n: integer
- * Returns: the address of the new node, or NULL if it failed
+ * Return: the address of the new node, or NULL if it failed
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
