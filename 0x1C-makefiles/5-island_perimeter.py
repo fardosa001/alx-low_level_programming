@@ -8,9 +8,9 @@ def island_perimeter(grid):
     for row in range(len(grid)):
         for clm in range(len(grid[0])):
             if grid[row][clm] == 1:
-                if row == 0 or grid[row -1][clm] == 0:
-                    pm +=1
-                if row == (len(grid) -1) or grid[row +1][clm] == 0:
+                if row == 0 or grid[row - 1][clm] == 0:
+                    pm += 1
+                if row == (len(grid) - 1) or grid[row + 1][clm] == 0:
                     pm += 1
                 if clm == 0 or grid[row][clm - 1] == 0:
                     pm += 1
